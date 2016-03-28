@@ -2,7 +2,6 @@
 public class DSList implements List {
 
 	public Node head;
-	//int size = 1;
 
 	public DSList() {
 		head = null;
@@ -17,7 +16,6 @@ public class DSList implements List {
 		for (Node n = other.head; n != null; n = n.next){
 			add(n.getObject());
 		}
-		//size = other.size;
 	}
 	public Token remove(int index) {
 		if (index < 0 || index > size()){
@@ -67,17 +65,17 @@ public class DSList implements List {
 
 	public int size() {
 
-		int count = 1;
+		int size = 1;
 		Node tempNode = head;
 		
 		if (isEmpty() == true){
 			return 0;
 		}
 		while (tempNode.next != null){
-			count++;
+			size++;
 			tempNode = tempNode.next;
 		}
-		return count;
+		return size;
 	}
 
 	@Override
@@ -106,7 +104,6 @@ public class DSList implements List {
 
 		if (currentNode.next == null){
 			currentNode.next = new Node(null, currentNode, obj);
-			//size ++;
 			return true;
 		}
 		return false;
@@ -117,7 +114,6 @@ public class DSList implements List {
 		if (index == 0){
 			Node tempNode = head;
 			tempNode.previous = head = new Node(tempNode, null, obj);
-			//size++;
 			return true;
 		}
 
@@ -125,7 +121,6 @@ public class DSList implements List {
 		for (Node n = head; n != null; n = n.next){
 			if (count == index-1){
 				n.next = new Node(n.next, n.previous, obj);
-				//size++;
 				return true;
 			}
 			else if (n.next == null){
@@ -153,7 +148,6 @@ public class DSList implements List {
 
 		if (head.getObject().equals(obj)){
 			head = head.next;
-			//size--;
 			return true;
 		}
 
@@ -166,7 +160,6 @@ public class DSList implements List {
 				else {
 					n.next.previous = n.previous;
 				}
-				//size --;
 				return true;
 			}
 		}
